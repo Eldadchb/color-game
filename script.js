@@ -2,6 +2,9 @@ const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
 
 const colorBox = document.getElementById("colorBox");
 const colorButtons = document.getElementById("colorButtons");
+const toggleDarkModeButton = document.getElementById("toggleDarkMode");
+
+let isDarkMode = false;
 
 function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
@@ -30,3 +33,8 @@ function createColorButton(color) {
 colors.forEach((color) => createColorButton(color));
 
 displayColor();
+
+toggleDarkModeButton.addEventListener("click", function () {
+  isDarkMode = !isDarkMode;
+  document.body.classList.toggle("dark-mode", isDarkMode);
+});
